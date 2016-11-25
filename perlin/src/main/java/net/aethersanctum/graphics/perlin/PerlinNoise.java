@@ -230,6 +230,6 @@ public final class PerlinNoise {
     }
 
     private static int randomPositiveInt() {
-        return Math.abs(random.nextInt());
+        return random.nextInt(Integer.MAX_VALUE);
     }
 }
