@@ -226,7 +226,7 @@ public final class PerlinNoise {
     }
 
     private static double randomSignedDouble() {
-        return (double) ((randomPositiveInt() % (RANGE_SIZE + RANGE_SIZE)) - RANGE_SIZE) / RANGE_SIZE;
+        return random.nextDouble() * 2.0 - 1.0;
     }
 
     private static int randomPositiveInt() {
