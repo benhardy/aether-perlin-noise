@@ -43,10 +43,10 @@ public final class PerlinNoise {
 
     private static final int SLOT_COUNT = RANGE_SIZE + RANGE_SIZE + 2;
 
-    private final static int[] indices = new int[SLOT_COUNT];
-    private final static double[][] seeds3d = new double[SLOT_COUNT][3];
-    private final static double[][] seeds2d = new double[SLOT_COUNT][2];
-    private final static double[] seeds1d = new double[SLOT_COUNT];
+    private static final int[] indices = new int[SLOT_COUNT];
+    private static final double[][] seeds3d = new double[SLOT_COUNT][3];
+    private static final double[][] seeds2d = new double[SLOT_COUNT][2];
+    private static final double[] seeds1d = new double[SLOT_COUNT];
 
     private static final Random random = new Random();
 
@@ -60,12 +60,14 @@ public final class PerlinNoise {
 
             seeds1d[i] = randomSignedDouble();
 
-            for (j = 0; j < 2; j++)
+            for (j = 0; j < 2; j++) {
                 seeds2d[i][j] = randomSignedDouble();
+            }
             normalize2(seeds2d[i]);
 
-            for (j = 0; j < 3; j++)
+            for (j = 0; j < 3; j++) {
                 seeds3d[i][j] = randomSignedDouble();
+            }
             normalize3(seeds3d[i]);
         }
 
@@ -79,10 +81,12 @@ public final class PerlinNoise {
         for (i = 0; i < RANGE_SIZE + 2; i++) {
             indices[RANGE_SIZE + i] = indices[i];
             seeds1d[RANGE_SIZE + i] = seeds1d[i];
-            for (j = 0; j < 2; j++)
+            for (j = 0; j < 2; j++) {
                 seeds2d[RANGE_SIZE + i][j] = seeds2d[i][j];
-            for (j = 0; j < 3; j++)
+            }
+            for (j = 0; j < 3; j++) {
                 seeds3d[RANGE_SIZE + i][j] = seeds3d[i][j];
+            }
         }
     }
 
